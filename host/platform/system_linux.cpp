@@ -47,7 +47,7 @@ bool read_picocalc_battery(int* percent, bool* charging) {
 
 // Best-effort sysfs battery read: first supply that reports a capacity.
 bool read_sysfs_battery(int* percent, bool* charging) {
-    static const char* kSupplies[] = {"BAT0", "BAT1", "bat", "battery", "axp20x-battery"};
+    static const char* kSupplies[] = {"picocalc", "BAT0", "BAT1", "bat", "battery", "axp20x-battery"};
     for (const char* name : kSupplies) {
         char path[128];
         std::snprintf(path, sizeof(path), "/sys/class/power_supply/%s/capacity", name);
